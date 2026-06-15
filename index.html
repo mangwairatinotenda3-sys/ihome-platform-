@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0A0C10" />
+    <meta name="description" content="iHome — find your perfect home with Shoebill AI" />
+    <title>iHome</title>
+
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="icon" href="./icon-192.png" />
+    <link rel="apple-touch-icon" href="./icon-192.png" />
+
+    <style>
+      html, body, #root { height: 100%; margin: 0; }
+      body { background: #060708; }
+    </style>
+
+    <!-- React + ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <!-- In-browser JSX transform (no build step) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Tailwind (for the few responsive utility classes used) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Supabase client -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel" data-presets="react" src="./app.jsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>
